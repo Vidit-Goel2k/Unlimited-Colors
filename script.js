@@ -2,10 +2,20 @@ const body = document.querySelector("body")
 const start = document.querySelector("#start")
 const stop = document.querySelector("#stop")
 
+const randomColor = () => {
+    const hex = "0123456789ABCDEF"
+
+    let color = "#"
+    for (let i = 0; i < 6; i++) {
+        color += hex[Math.floor(Math.random()*16)];   
+    }
+    return color
+}
+
 const changeColor = () => {
-    const colorHexVal = `#${((Math.random()*1000000).toFixed(0))}`
+    const colorHexVal = randomColor()
     body.style.backgroundColor = colorHexVal
-    console.log("color changed")
+    console.log(colorHexVal)
 }
 
 let startChangeColor
