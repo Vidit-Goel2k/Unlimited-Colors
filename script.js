@@ -20,12 +20,15 @@ const changeColor = () => {
 
 let startChangeColor
 const handleStart = () => {
-    startChangeColor = setInterval(changeColor, 1000);
+    if(!startChangeColor){
+        startChangeColor = setInterval(changeColor, 1000);
+    }
 }
 
 const stopColor = () => {
     const stopChangeColor = clearInterval(startChangeColor);
     console.log("color change stopped")
+    startChangeColor = null
 }
 
 const handleStop = () => {
